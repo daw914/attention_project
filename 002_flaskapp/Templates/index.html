@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lottery Purchase Insight Engine</title>
+    <!-- Include the SHAP JavaScript library -->
+    <script src="https://cdn.jsdelivr.net/npm/@shap/force-plot@0.3.0/dist/force-plot.min.js"></script>
+</head>
+<body>
+  
+  <h2>Lottery Purchase Insight Engine</h2>
+  
+  <form method="POST" action="/">
+    gender:<br>
+    <select name="gender" required>
+        <option value=1>Female</option>
+        <option value=0>Male</option>
+    </select>
+    <br><br>
+
+    age:<br>
+    <select name="age" required>
+        <option value=1>18-24 years old</option>
+        <option value=2>25-34 years old</option>
+        <option value=3>35-44 years old</option>
+        <option value=4>45-54 years old</option>
+        <option value=5>55-64 years old</option>
+        <option value=6>65-74 years old</option>
+        <option value=7>75 years old</option>
+    </select>
+    <br><br>
+
+    education:<br>
+    <select name="education" required>
+        <option value=1>some high school</option>
+        <option value=2>high school graduate</option>
+        <option value=3>some college</option>
+        <option value=4>Associate or Bachellors degree</option>
+        <option value=5>Master degree or higher</option>
+    </select>
+    <br><br>
+
+    income:<br>
+    <select name="income" required>
+        <option value=1>Less than 10000</option>
+        <option value=2>10000 to 19999</option>
+        <option value=3>20000 to 29999</option>
+        <option value=4>30000 to 39999</option>
+        <option value=5>40000 to 49999</option>
+        <option value=6>50000 to 59999</option>
+        <option value=7>60000 to 69999</option>
+        <option value=8>70000 to 79999</option>
+        <option value=9>80000 to 89999</option>
+        <option value=10>90000 to 99999</option>
+        <option value=11>100000 to 149999</option>
+        <option value=12>more than 150000</option>
+    </select>
+    <br><br>
+
+
+    marital_status:<br>
+    <select name="marital_status" required>
+        <option value=1>single</option>
+        <option value=0>other</option>
+    </select>
+    <br><br>
+
+    employment:<br>
+    <select name="employment" required>
+        <option value=1>employed or self-employed</option>
+        <option value=2>out of work and looking for work</option>
+        <option value=3>out of work but not looking for work</option>
+        <option value=4>home maker</option>
+        <option value=5>student</option>
+        <option value=6>retired or unable to work</option>
+    </select>
+    <br><br>
+
+    cost:<br>
+    <select name="cost" required>
+        <option value=1>Low</option>
+        <option value=2>Medium</option>
+        <option value=3>High</option>
+    </select>
+    <br><br>
+
+    duration:<br>
+    <input type="number" name="duration" value=50>
+    <br><br>
+
+    firstclick:<br>
+    <input type="number" name="firstclick" value=0>
+    <br><br>
+
+    lastclick:<br>
+    <input type="number" name="lastclick" value=0>
+    <br><br>
+
+    clickcount:<br>
+    <input type="number" name="clickcount" value=5>
+    <br><br>
+
+    hispanic:<br>
+    <select name="hispanic" required>
+        <option value=0>No</option>
+        <option value=1>Yes</option>
+    </select>
+    <br><br>
+
+    black:<br>
+    <select name="black" required>
+        <option value=0>No</option>
+        <option value=1>Yes</option>
+    </select>
+    <br><br>
+
+    asian:<br>
+    <select name="asian" required>
+        <option value=0>No</option>
+        <option value=1>Yes</option>
+    </select>
+    <br><br>
+
+    Native_Hawaiian:<br>
+    <select name="Native_Hawaiian" required>
+        <option value=0>No</option>
+        <option value=1>Yes</option>
+    </select>
+    <br><br>
+
+    other:<br>
+    <select name="other" required>
+        <option value=0>No</option>
+        <option value=1>Yes</option>
+    </select>
+    <br><br>
+
+    position_1:<br>
+    <select name="position_1" required>
+        <option value=1>lottery 1</option>
+        <option value=2>lottery 2</option>
+        <option value=3>lottery 3</option>
+        <option value=4>lottery 4</option>
+        <option value=5>lottery 5</option>
+    </select>
+    <br><br>
+
+    position_2:<br>
+    <select name="position_2" required>
+        <option value=1>lottery 1</option>
+        <option value=2>lottery 2</option>
+        <option value=3>lottery 3</option>
+        <option value=4>lottery 4</option>
+        <option value=5>lottery 5</option>
+        <option value=0>None</option>
+    </select>
+    <br><br>
+
+    position_3:<br>
+    <select name="position_3" required>
+        <option value=1>lottery 1</option>
+        <option value=2>lottery 2</option>
+        <option value=3>lottery 3</option>
+        <option value=4>lottery 4</option>
+        <option value=5>lottery 5</option>
+        <option value=0>None</option>
+    </select>
+    <br><br>
+
+    position_4:<br>
+    <select name="position_4" required>
+        <option value=1>lottery 1</option>
+        <option value=2>lottery 2</option>
+        <option value=3>lottery 3</option>
+        <option value=4>lottery 4</option>
+        <option value=5>lottery 5</option>
+        <option value=0>None</option>
+    </select>
+    <br><br>
+
+    position_5:<br>
+    <select name="position_5" required>
+        <option value=1>lottery 1</option>
+        <option value=2>lottery 2</option>
+        <option value=3>lottery 3</option>
+        <option value=4>lottery 4</option>
+        <option value=5>lottery 5</option>
+        <option value=0>None</option>
+    </select>
+    <br><br>
+
+    order_l1:<br>
+    <select name="order_l1" required>
+        <option value=5>lottery 1 in the first location</option>
+        <option value=4>lottery 1 in the second location</option>
+        <option value=3>lottery 1 in the third location</option>
+        <option value=2>lottery 1 in the fourth location</option>
+        <option value=1>lottery 1 in the fifth location</option>
+        <option value=-100000000>None</option>
+    </select>
+    <br><br>
+
+    order_l2:<br>
+    <select name="order_l2" required>
+        <option value=5>lottery 2 in the first location</option>
+        <option value=4>lottery 2 in the second location</option>
+        <option value=3>lottery 2 in the third location</option>
+        <option value=2>lottery 2 in the fourth location</option>
+        <option value=1>lottery 2 in the fifth location</option>
+        <option value=-100000000>None</option>
+    </select>
+    <br><br>
+
+    
+    order_l3:<br>
+    <select name="order_l3" required>
+        <option value=5>lottery 3 in the first location</option>
+        <option value=4>lottery 3 in the second location</option>
+        <option value=3>lottery 3 in the third location</option>
+        <option value=2>lottery 3 in the fourth location</option>
+        <option value=1>lottery 3 in the fifth location</option>
+        <option value=-100000000>None</option>
+    </select>
+    <br><br>
+
+    order_l4:<br>
+    <select name="order_l4" required>
+        <option value=5>lottery 4 in the first location</option>
+        <option value=4>lottery 4 in the second location</option>
+        <option value=3>lottery 4 in the third location</option>
+        <option value=2>lottery 4 in the fourth location</option>
+        <option value=1>lottery 4 in the fifth location</option>
+        <option value=-100000000>None</option>
+    </select>
+    <br><br>
+
+    order_l5:<br>
+    <select name="order_l5" required>
+        <option value=5>lottery 5 in the first location</option>
+        <option value=4>lottery 5 in the second location</option>
+        <option value=3>lottery 5 in the third location</option>
+        <option value=2>lottery 5 in the fourth location</option>
+        <option value=1>lottery 5 in the fifth location</option>
+        <option value=-100000000>None</option>
+    </select>
+    <br><br>
+
+
+    <input type="submit" value="Submit">
+  </form>
+
+  {% if pred %}
+  <p>The probability in churn is {{ pred }}</p>
+  {% endif %}
+
+
+
+
+</body>
+</html>

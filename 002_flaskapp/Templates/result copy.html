@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Results</title>
+    <!-- Include the SHAP JavaScript library -->
+    <script src="https://cdn.jsdelivr.net/npm/@shap/force-plot@0.3.0/dist/force-plot.min.js"></script>
+</head>
+<body>
+    <h2>Prediction Result</h2>
+    
+    <!-- Display the prediction -->
+    <p>The predicted probability of churn is: {{ pred }}</p>
+
+    <!-- Display the SHAP explanation -->
+    {% if shap_html %}
+        <h3>SHAP Explanation:</h3>
+        <div id="shap-plot">{{ shap_html | safe }}</div>
+    {% endif %}
+
+    <!-- Add a button to go back to the form page -->
+    <a href="{{ url_for('index') }}">Go back</a>
+</body>
+</html>

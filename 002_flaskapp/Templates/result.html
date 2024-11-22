@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <script src="https://cdn.jsdelivr.net/npm/shap@0.42.1/shap.min.js"></script>
+</head>
+<body>
+    <h1>Prediction Result</h1>
+    <p>Your likelihood of buying safe asset: {{ pred }}</p>
+
+    <h2>SHAP Force Plot</h2>
+    <div id="force-plot">{{ shap_html | safe }}</div>
+</body>
+</html>
